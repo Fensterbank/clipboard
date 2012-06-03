@@ -31,7 +31,7 @@ namespace Zwischenablage.app
         private DateTime creationDate;
         private DateTime? deletionDate;
         private String mimeType;
-        private Int32 fileSize;
+        private Int64 fileSize;
 
         public String PhysicalPath
         {
@@ -50,7 +50,7 @@ namespace Zwischenablage.app
             set { this.fileName = value; }
         }
 
-        public Int32 FileSize
+        public Int64 FileSize
         {
             get { return this.fileSize; }
             set { this.fileSize = value; }
@@ -72,6 +72,11 @@ namespace Zwischenablage.app
                 {
                     size = size / 1024;
                     suffix = "MiB";
+                }
+                if (size > 1024)
+                {
+                    size = size / 1024;
+                    suffix = "GiB";
                 }
 
                 return String.Format("{0:0.00}", size) + " " + suffix;
@@ -96,7 +101,7 @@ namespace Zwischenablage.app
             set { this.deletionDate = value; }
         }
 
-        public File(string fileName, String mimeType, Int32 fileSize, DateTime? deletionDate)
+        public File(string fileName, String mimeType, Int64 fileSize, DateTime? deletionDate)
         {
             this.rnd = new Random(DateTime.Now.Millisecond);
             this.id = rnd.Next(1000, 1000000);
@@ -117,7 +122,7 @@ namespace Zwischenablage.app
         }
 
         public void Delete() {
-            if (this.id != null && this.id != -1 && this.id != 1)
+            if (this.id != -1 && this.id != 1)
             {
                 FileManager.deleteFileByID(this.id);
                 System.IO.File.Delete(this.PhysicalPath);

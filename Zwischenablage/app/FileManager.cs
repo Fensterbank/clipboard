@@ -130,7 +130,7 @@ namespace Zwischenablage.app
             if (!dr["id"].Equals(DBNull.Value)) entry.ID = (int)dr["id"];
             if (!dr["filename"].Equals(DBNull.Value)) entry.FileName = (String)dr["filename"];
             if (!dr["mimeType"].Equals(DBNull.Value)) entry.MimeType = (String)dr["mimeType"];
-            if (!dr["fileSize"].Equals(DBNull.Value)) entry.FileSize = (Int32)dr["fileSize"];
+            if (!dr["fileSize"].Equals(DBNull.Value)) entry.FileSize = (Int64)dr["fileSize"];
             if (!dr["creationDate"].Equals(DBNull.Value)) entry.CreationDate = (DateTime)dr["creationDate"];
             if (!dr["deletionDate"].Equals(DBNull.Value)) entry.DeletionDate = (DateTime)dr["deletionDate"];            
             return entry;
