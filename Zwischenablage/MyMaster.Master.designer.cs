@@ -10,7 +10,7 @@
 namespace Zwischenablage {
     
     
-    public partial class Main {
+    public partial class MyMaster {
         
         /// <summary>
         /// head-Steuerelement

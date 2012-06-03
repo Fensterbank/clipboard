@@ -1,14 +1,32 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="Zwischenablage.Main" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MyMaster.Master.cs" Inherits="Zwischenablage.MyMaster" %>
 
 <!DOCTYPE html>
+
+<!--
+    Clipboard - A simple file and image uploader and viewer
+    Copyright (C) 2012 Frédéric Bolvin
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <title>Bootstrap, from Twitter</title>
+    <meta charset="utf-8">    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
+    <meta name="description" content="Die Zwischenablage">
+    <meta name="author" content="Frédéric Bolvin">
+    <title>Zwischenablage</title>
     <!-- Le styles -->
     <link href="css/bootstrap.css" rel="stylesheet">
     <style>
@@ -61,23 +79,17 @@
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         
             </asp:ContentPlaceHolder>
-        </div> <!-- /container -->
-        
-           <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap-transition.js"></script>
-    <script src="js/bootstrap-alert.js"></script>
-    <script src="js/bootstrap-modal.js"></script>
-    <script src="js/bootstrap-dropdown.js"></script>
-    <script src="js/bootstrap-scrollspy.js"></script>
-    <script src="js/bootstrap-tab.js"></script>
-    <script src="js/bootstrap-tooltip.js"></script>
-    <script src="js/bootstrap-popover.js"></script>
-    <script src="js/bootstrap-button.js"></script>
-    <script src="js/bootstrap-collapse.js"></script>
-    <script src="js/bootstrap-carousel.js"></script>
-    <script src="js/bootstrap-typeahead.js"></script>
+        </div> <!-- /container -->       
+    
+    <footer id="copyright" class="copyright align-center" style="text-align:center;">
+  
+  Clipboard 1.0. Copyright © 2012 
+  <a href="http://bolvin.de target="_blank">Frédéric Bolvin</a>.<br />
+ 
+  This software is released under the GPLv3. Full source code is available on 
+  <a href="https://github.com/Fensterbank/clipboard" target="_blank">github</a>.
+</footer>
+
+    <script src="js/bootstrap.min.js"></script>    
 </body>
 </html>

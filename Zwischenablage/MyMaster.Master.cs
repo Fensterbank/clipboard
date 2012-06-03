@@ -25,7 +25,7 @@ using System.Web.UI.WebControls;
 
 namespace Zwischenablage
 {
-    public partial class archiv : System.Web.UI.Page
+    public partial class MyMaster : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
