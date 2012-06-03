@@ -6,13 +6,13 @@ using System.Data;
 
 namespace Zwischenablage.app
 {
-    public class FileDal
+    public class FileManager
     {
         #region SQL Statements
         private const string getAllFilesStatement = "SELECT * FROM files";
         private const string getFileByIDStatement = "SELECT * FROM files WHERE id = @id";
-        private const string getLastIDStatement = "SELECT MAX(id) AS id FROM files";
-        private const string createFileStatement = "INSERT INTO [files] ([filename],[creationDate],[deletionDate])  VALUES (@filename, @creationDate, @deletionDate )";        
+        private const string checkFreeIDStatement = "SELECT id FROM files WHERE id = @id";
+        private const string createFileStatement = "INSERT INTO [files] ([id], [filename],[mimeType], [fileSize], [creationDate],[deletionDate])  VALUES (@id, @filename, @mimeType, @fileSize, @creationDate, @deletionDate )";        
         private const string deleteFileStatement = "DELETE FROM files WHERE id = @id";
         #endregion
 
@@ -28,28 +28,46 @@ namespace Zwischenablage.app
             IDictionary<string, object> parameters = new Dictionary<string, object>();
             parameters.Add("@id", id);
             DataTable dt = SQLHelper.ExecuteDataTable(getFileByIDStatement, parameters);
-            return convertToFile(dt.Rows[0]);
+            if (dt.Rows.Count == 0)
+            {
+                throw new Exception("File ID not found in database");
+            }
+            else
+            {
+                return convertToFile(dt.Rows[0]);
+            }
         }
 
         public static File createFile(File entry)
-        {
+        {            
             IDictionary<string, object> parameters = new Dictionary<string, object>();
+            parameters.Add("@id", entry.ID);
             parameters.Add("@filename", entry.FileName);
             parameters.Add("@creationDate", entry.CreationDate);
-            parameters.Add("@deletionDate", entry.DeletionDate);            
+            parameters.Add("@deletionDate", entry.DeletionDate);
+            parameters.Add("@mimeType", entry.MimeType);
+            parameters.Add("@fileSize", entry.FileSize);   
 
             try
             {
+                DataTable dt = SQLHelper.ExecuteDataTable(checkFreeIDStatement, parameters);
+
+                while (dt.Rows.Count > 0)
+                {
+                    entry.CreateNewID();
+                    parameters["@id"] = entry.ID;
+                    dt = SQLHelper.ExecuteDataTable(checkFreeIDStatement, parameters);
+                }
+
                 SQLHelper.ExecuteDataTable(createFileStatement, parameters);
             }
             catch (Exception)
             {
                 return null;
-            }
-            DataTable dt = SQLHelper.ExecuteDataTable(getLastIDStatement);
-            entry.ID = Convert.ToInt32(dt.Rows[0]["id"]);
+            }                       
             return entry;
         }
+        
 
        
         public static Boolean deleteFileByID(int id)
@@ -93,10 +111,31 @@ namespace Zwischenablage.app
 
             if (!dr["id"].Equals(DBNull.Value)) entry.ID = (int)dr["id"];
             if (!dr["filename"].Equals(DBNull.Value)) entry.FileName = (String)dr["filename"];
+            if (!dr["mimeType"].Equals(DBNull.Value)) entry.MimeType = (String)dr["mimeType"];
+            if (!dr["fileSize"].Equals(DBNull.Value)) entry.FileSize = (Int32)dr["fileSize"];
             if (!dr["creationDate"].Equals(DBNull.Value)) entry.CreationDate = (DateTime)dr["creationDate"];
             if (!dr["deletionDate"].Equals(DBNull.Value)) entry.DeletionDate = (DateTime)dr["deletionDate"];            
             return entry;
         }
+        #endregion
+
+        #region Logic
+
+        public static void TriggerDeletion()
+        {
+            List<File> fileList = FileManager.getAllFiles();
+            DateTime now = DateTime.Now;
+
+            foreach (File f in fileList)
+            {                
+                if (f.DeletionDate != null && now > f.DeletionDate)
+                {
+                    f.Delete();                    
+                }
+            }
+        }
+
+
         #endregion
     }
 }

@@ -56,8 +56,53 @@
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="default.aspx" />
+    <Content Include="file.aspx" />
+    <Content Include="img\404.jpg" />
+    <Content Include="img\mimetypes\applix.png" />
+    <Content Include="img\mimetypes\ascii.png" />
+    <Content Include="img\mimetypes\binary.png" />
+    <Content Include="img\mimetypes\cdimage.png" />
+    <Content Include="img\mimetypes\colorset.png" />
+    <Content Include="img\mimetypes\deb.png" />
+    <Content Include="img\mimetypes\doc.png" />
+    <Content Include="img\mimetypes\empty.png" />
+    <Content Include="img\mimetypes\encrypted.png" />
+    <Content Include="img\mimetypes\exec_wine.png" />
+    <Content Include="img\mimetypes\font_truetype.png" />
     <Content Include="img\glyphicons-halflings-white.png" />
     <Content Include="img\glyphicons-halflings.png" />
+    <Content Include="img\mimetypes\html.png" />
+    <Content Include="img\mimetypes\image.png" />
+    <Content Include="img\mimetypes\java_src.png" />
+    <Content Include="img\mimetypes\kchart_chrt.png" />
+    <Content Include="img\mimetypes\make.png" />
+    <Content Include="img\mimetypes\message.png" />
+    <Content Include="img\mimetypes\midi.png" />
+    <Content Include="img\mimetypes\mime_resource.png" />
+    <Content Include="img\mimetypes\misc.png" />
+    <Content Include="img\mimetypes\news.png" />
+    <Content Include="img\mimetypes\pdf.png" />
+    <Content Include="img\mimetypes\php.png" />
+    <Content Include="img\mimetypes\pps.png" />
+    <Content Include="img\mimetypes\quicktime.png" />
+    <Content Include="img\mimetypes\real.png" />
+    <Content Include="img\mimetypes\resource.png" />
+    <Content Include="img\mimetypes\rpm.png" />
+    <Content Include="img\mimetypes\schedule.png" />
+    <Content Include="img\mimetypes\shellscript.png" />
+    <Content Include="img\mimetypes\sound.png" />
+    <Content Include="img\mimetypes\source_c.png" />
+    <Content Include="img\mimetypes\source_cpp.png" />
+    <Content Include="img\mimetypes\source_h.png" />
+    <Content Include="img\mimetypes\source_py.png" />
+    <Content Include="img\mimetypes\swf.png" />
+    <Content Include="img\mimetypes\tar.png" />
+    <Content Include="img\mimetypes\tex.png" />
+    <Content Include="img\mimetypes\txt.png" />
+    <Content Include="img\mimetypes\vcalendar.png" />
+    <Content Include="img\mimetypes\vcard.png" />
+    <Content Include="img\mimetypes\video.png" />
+    <Content Include="img\mimetypes\xcf.png" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="Web.config" />
@@ -70,7 +115,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="app\File.cs" />
-    <Compile Include="app\FileDal.cs" />
+    <Compile Include="app\FileManager.cs" />
     <Compile Include="app\SQLHelper.cs" />
     <Compile Include="archiv.aspx.cs">
       <DependentUpon>archiv.aspx</DependentUpon>
@@ -85,6 +130,13 @@
     </Compile>
     <Compile Include="default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="file.aspx.cs">
+      <DependentUpon>file.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="file.aspx.designer.cs">
+      <DependentUpon>file.aspx</DependentUpon>
     </Compile>
     <Compile Include="Main.Master.cs">
       <DependentUpon>Main.Master</DependentUpon>

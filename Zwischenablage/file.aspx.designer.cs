@@ -10,7 +10,7 @@
 namespace Zwischenablage {
     
     
-    public partial class _default {
+    public partial class file {
         
         /// <summary>
         /// form1-Steuerelement
@@ -22,6 +22,15 @@ namespace Zwischenablage {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// litTitle-Steuerelement
+        /// </summary>
+        /// <remarks>
+        /// Automatisch generiertes Feld
+        /// Um dies zu ändern, verschieben Sie die Felddeklaration aus der Designerdatei in eine Code-Behind-Datei.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litTitle;
+        
+        /// <summary>
         /// mvMain-Steuerelement
         /// </summary>
         /// <remarks>
@@ -31,66 +40,75 @@ namespace Zwischenablage {
         protected global::System.Web.UI.WebControls.MultiView mvMain;
         
         /// <summary>
-        /// viewUpload-Steuerelement
+        /// viewShow-Steuerelement
         /// </summary>
         /// <remarks>
         /// Automatisch generiertes Feld
         /// Um dies zu ändern, verschieben Sie die Felddeklaration aus der Designerdatei in eine Code-Behind-Datei.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.View viewUpload;
+        protected global::System.Web.UI.WebControls.View viewShow;
         
         /// <summary>
-        /// upFile-Steuerelement
+        /// divThumbnail-Steuerelement
         /// </summary>
         /// <remarks>
         /// Automatisch generiertes Feld
         /// Um dies zu ändern, verschieben Sie die Felddeklaration aus der Designerdatei in eine Code-Behind-Datei.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload upFile;
+        protected global::System.Web.UI.WebControls.Panel divThumbnail;
         
         /// <summary>
-        /// ddlDeleteAfter-Steuerelement
+        /// lnkImage-Steuerelement
         /// </summary>
         /// <remarks>
         /// Automatisch generiertes Feld
         /// Um dies zu ändern, verschieben Sie die Felddeklaration aus der Designerdatei in eine Code-Behind-Datei.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDeleteAfter;
+        protected global::System.Web.UI.WebControls.HyperLink lnkImage;
         
         /// <summary>
-        /// btnUpload-Steuerelement
+        /// litFilename-Steuerelement
         /// </summary>
         /// <remarks>
         /// Automatisch generiertes Feld
         /// Um dies zu ändern, verschieben Sie die Felddeklaration aus der Designerdatei in eine Code-Behind-Datei.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpload;
+        protected global::System.Web.UI.WebControls.Literal litFilename;
         
         /// <summary>
-        /// viewResult-Steuerelement
+        /// litInfoUploadedDate-Steuerelement
         /// </summary>
         /// <remarks>
         /// Automatisch generiertes Feld
         /// Um dies zu ändern, verschieben Sie die Felddeklaration aus der Designerdatei in eine Code-Behind-Datei.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.View viewResult;
+        protected global::System.Web.UI.WebControls.Literal litInfoUploadedDate;
         
         /// <summary>
-        /// tbPageLink-Steuerelement
+        /// litInfoFileSize-Steuerelement
         /// </summary>
         /// <remarks>
         /// Automatisch generiertes Feld
         /// Um dies zu ändern, verschieben Sie die Felddeklaration aus der Designerdatei in eine Code-Behind-Datei.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbPageLink;
+        protected global::System.Web.UI.WebControls.Literal litInfoFileSize;
         
         /// <summary>
-        /// tbDirectLink-Steuerelement
+        /// viewError-Steuerelement
         /// </summary>
         /// <remarks>
         /// Automatisch generiertes Feld
         /// Um dies zu ändern, verschieben Sie die Felddeklaration aus der Designerdatei in eine Code-Behind-Datei.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbDirectLink;
+        protected global::System.Web.UI.WebControls.View viewError;
+        
+        /// <summary>
+        /// img404-Steuerelement
+        /// </summary>
+        /// <remarks>
+        /// Automatisch generiertes Feld
+        /// Um dies zu ändern, verschieben Sie die Felddeklaration aus der Designerdatei in eine Code-Behind-Datei.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image img404;
     }
 }
