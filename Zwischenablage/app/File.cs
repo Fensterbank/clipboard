@@ -162,6 +162,7 @@ namespace Zwischenablage.app
                     case "application/rtf":
                     case "text/richtext":
                     case "text/rtf":
+                    case "application/vnd.openxmlformats-officedocument.wordprocessingml.document":
                         imageURL += "doc.png";
                         break;
                     case "application/octet-stream":

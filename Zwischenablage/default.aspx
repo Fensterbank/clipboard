@@ -53,6 +53,15 @@
                                     </asp:DropDownList>
                                 </div>
                             </div>
+                            <asp:PlaceHolder runat="server" ID="phUploadPassword">
+                                <div class="control-group">
+                                    <label class="control-label" for="<%=tbUploadPassword.ClientID%>">Uploadpasswort:</label>                        
+                                    <div class="controls">
+                                        <asp:TextBox runat="server" TextMode="Password" ID="tbUploadPassword" Width="100%" />
+                                        <p class="help-block">Die Dateiablage ist nur unter Angabe des korrekten Passworts möglich.</p>   
+                                    </div>
+                                </div>
+                            </asp:PlaceHolder>
                             <div class="form-actions" style="margin-bottom:0px; padding-bottom:6px;">
                                 <asp:Button runat="server" ID="btnUpload" CssClass="btn btn-primary" Text="Datei ablegen" OnClick="btnUpload_Click" />
                             </div>                

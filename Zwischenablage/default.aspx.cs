@@ -20,18 +20,35 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Configuration;
 using Zwischenablage.app;
 
 namespace Zwischenablage
 {
     public partial class _default : System.Web.UI.Page
     {
+        String _UploadPassword;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             // Always check, if files have to be deleted
             FileManager.TriggerDeletion();
+
+            _UploadPassword = ConfigurationManager.AppSettings["UploadPassword"];
+
+
+            if (!String.IsNullOrWhiteSpace(_UploadPassword))
+            {
+                phUploadPassword.Visible = true;
+            }
+            else
+            {
+                phUploadPassword.Visible = false;
+            }
+
 
             if (!this.IsPostBack)
             {
@@ -50,6 +67,11 @@ namespace Zwischenablage
 
                 try
                 {
+                    if (!String.IsNullOrWhiteSpace(_UploadPassword) && !tbUploadPassword.Text.Equals(_UploadPassword))
+                    {
+                        throw new UnauthorizedAccessException("Incorrect upload password");
+                    }
+
                     upFile.PostedFile.SaveAs(SaveLoc);                    
                     DateTime? deletionDate = null;
 
@@ -88,9 +110,9 @@ namespace Zwischenablage
                     tbPageLink.Text = "http://clipboard.bolvin.de/file.aspx?id=" + fileID;
                     form1.Attributes.Add("class", "well form-horizontal");
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-
+  
                 }
             }
         }        
